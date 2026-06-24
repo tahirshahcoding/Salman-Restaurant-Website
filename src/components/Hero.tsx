@@ -68,15 +68,41 @@ export default function Hero({ onExploreMenu, onOpenBooking }: HeroProps) {
           className="absolute right-0 bottom-[-20px] md:bottom-[-40px] lg:bottom-[-80px] w-[85%] md:w-[60%] max-w-[1000px] h-auto object-contain z-0 select-none pointer-events-none transform translate-y-2 lg:translate-y-12"
         />
 
-        {/* Mobile Welcome Header */}
-        <div className="absolute top-28 left-0 right-0 text-center px-4 md:hidden z-20">
+        {/* Mobile Welcome Header & CTA Buttons */}
+        <div className="absolute top-28 left-0 right-0 text-center px-4 md:hidden z-20 flex flex-col items-center">
           <span className="text-4xl text-brand-red block mb-0.5 leading-none select-none font-script" style={{ fontFamily: '"Great Vibes", cursive' }}>
             Welcome to
           </span>
           <h2 className="text-3xl font-serif font-bold text-gray-900 tracking-wide drop-shadow-sm leading-tight" style={{ fontFamily: '"Playfair Display", Georgia, serif' }}>
             Salman Restaurant
           </h2>
-          <div className="w-16 h-[2px] bg-brand-yellow mx-auto mt-3 rounded-full opacity-80" />
+          <div className="w-16 h-[2px] bg-brand-yellow mx-auto mt-3 rounded-full opacity-80 mb-5" />
+
+          {/* Floating CTA Buttons on Mobile */}
+          <div className="flex flex-row justify-center items-center gap-4 w-full">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={onExploreMenu}
+              className="bg-brand-yellow hover:bg-brand-darkYellow text-white pl-2.5 pr-6 py-2 rounded-full font-sans font-bold tracking-widest transition-all flex items-center gap-2 shadow-lg shadow-yellow-500/20 text-[10px] cursor-pointer"
+            >
+              <span className="bg-white/10 p-1.5 rounded-full flex items-center justify-center border border-white/20">
+                <Utensils className="w-3.5 h-3.5 text-white" />
+              </span>
+              EXPLORE MENU
+            </motion.button>
+
+            <motion.button
+              whileHover={{ scale: 1.03 }}
+              onClick={() => setShowStoryModal(true)}
+              className="flex items-center gap-2 text-gray-800 font-sans font-bold text-[10px] tracking-widest hover:text-brand-red transition-colors group cursor-pointer w-fit"
+            >
+              <span className="w-8 h-8 rounded-full border-2 border-brand-red flex items-center justify-center text-brand-red group-hover:bg-brand-red group-hover:text-white transition-all shadow-sm shrink-0">
+                <Play className="w-3.5 h-3.5 ml-0.5 fill-current" />
+              </span>
+              WATCH OUR STORY
+            </motion.button>
+          </div>
         </div>
 
 
@@ -303,31 +329,7 @@ export default function Hero({ onExploreMenu, onOpenBooking }: HeroProps) {
               <Sparkles className="w-4 h-4 sm:w-6 sm:h-6 text-brand-yellow animate-pulse" />
             </div>
 
-            {/* Mobile Ribbon with Buttons */}
-            <div className="absolute bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-gray-100 shadow-2xl py-3.5 px-4 flex justify-center items-center gap-5 md:hidden">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.97 }}
-                onClick={onExploreMenu}
-                className="bg-brand-yellow hover:bg-brand-darkYellow text-white pl-2.5 pr-6 py-2 rounded-full font-sans font-bold tracking-widest transition-all flex items-center gap-2 shadow-lg shadow-yellow-500/20 text-[10px] cursor-pointer"
-              >
-                <span className="bg-white/10 p-1.5 rounded-full flex items-center justify-center border border-white/20">
-                  <Utensils className="w-3.5 h-3.5 text-white" />
-                </span>
-                EXPLORE MENU
-              </motion.button>
 
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                onClick={() => setShowStoryModal(true)}
-                className="flex items-center gap-2 text-gray-800 font-sans font-bold text-[10px] tracking-widest hover:text-brand-red transition-colors group cursor-pointer w-fit"
-              >
-                <span className="w-8 h-8 rounded-full border-2 border-brand-red flex items-center justify-center text-brand-red group-hover:bg-brand-red group-hover:text-white transition-all shadow-sm shrink-0">
-                  <Play className="w-3.5 h-3.5 ml-0.5 fill-current" />
-                </span>
-                WATCH OUR STORY
-              </motion.button>
-            </div>
 
           </motion.div>
 
