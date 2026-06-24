@@ -141,7 +141,7 @@ export default function Hero({ onExploreMenu, onOpenBooking }: HeroProps) {
 
           {/* ── Text Content Block ─────────────────────────────────── */}
           <motion.div
-            className="lg:col-span-6 xl:col-span-7 max-w-2xl text-left py-16 md:py-24 lg:py-32 relative z-20"
+            className="lg:col-span-6 xl:col-span-7 max-w-2xl text-left pt-6 pb-16 md:pb-24 lg:py-32 relative z-20 order-2 lg:order-1"
             initial="hidden"
             animate="visible"
             variants={{
@@ -237,7 +237,7 @@ export default function Hero({ onExploreMenu, onOpenBooking }: HeroProps) {
 
           {/* ── Image Column ───────────────────────────────────────── */}
           <motion.div
-            className="lg:col-span-6 xl:col-span-5 relative w-full h-[550px] lg:h-[780px] xl:h-[880px] flex items-end justify-center z-10"
+            className="lg:col-span-6 xl:col-span-5 relative w-full h-[380px] sm:h-[480px] lg:h-[780px] xl:h-[880px] flex items-end justify-center z-10 order-1 lg:order-2"
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
