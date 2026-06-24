@@ -61,12 +61,6 @@ export default function Hero({ onExploreMenu, onOpenBooking }: HeroProps) {
         <div className="absolute inset-0 bg-pattern opacity-40 pointer-events-none" />
         <div className="absolute top-12 left-1/2 -translate-x-1/2 w-72 h-72 bg-brand-yellow/10 rounded-full blur-3xl pointer-events-none animate-slow-drift" />
 
-        {/* Red Brush Stroke Background (Positioned relative to full section to touch screen edge) */}
-        <img
-          src={brushImg}
-          alt="Brush Stroke Accent"
-          className="absolute right-0 bottom-[-40px] lg:bottom-[-80px] w-[50%] lg:w-[60%] max-w-[1000px] h-auto object-contain z-0 select-none pointer-events-none transform translate-y-6 lg:translate-y-12"
-        />
 
         {/* Minimal Restaurant Background Doodles (9 Section-level + 3 Column-level = 12 total) */}
         {/* Doodle 1: Crossed Fork and Spoon */}
@@ -242,6 +236,13 @@ export default function Hero({ onExploreMenu, onOpenBooking }: HeroProps) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
+
+            {/* Red Brush Stroke Background (Moved inside the column to sit under portrait on mobile) */}
+            <img
+              src={brushImg}
+              alt="Brush Stroke Accent"
+              className="absolute right-0 bottom-[-20px] lg:bottom-[-80px] w-[85%] md:w-[60%] lg:w-[120%] max-w-[1000px] h-auto object-contain z-0 select-none pointer-events-none transform translate-y-2 lg:translate-y-12"
+            />
 
             {/* Wrapper for centering and positioning the image */}
             <div className="absolute inset-x-0 bottom-0 h-[115%] lg:h-[120%] flex items-end justify-center lg:justify-end">
