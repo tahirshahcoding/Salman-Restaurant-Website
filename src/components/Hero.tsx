@@ -137,11 +137,11 @@ export default function Hero({ onExploreMenu, onOpenBooking }: HeroProps) {
           </svg>
         </div>
 
-        <div className="w-full max-w-[1750px] mx-auto px-4 sm:px-6 lg:px-12 xl:px-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center relative z-10 flex-1">
+        <div className="w-full max-w-[1750px] mx-auto px-4 sm:px-6 lg:px-12 xl:px-16 grid grid-cols-12 gap-4 lg:gap-16 items-center relative z-10 flex-1">
 
           {/* ── Text Content Block ─────────────────────────────────── */}
           <motion.div
-            className="lg:col-span-6 xl:col-span-7 max-w-2xl text-left pt-6 pb-16 md:pb-24 lg:py-32 relative z-20 order-2 lg:order-1"
+            className="col-span-7 sm:col-span-7 lg:col-span-7 xl:col-span-7 max-w-2xl text-left py-6 sm:py-12 lg:py-32 relative z-20 order-1 lg:order-1"
             initial="hidden"
             animate="visible"
             variants={{
@@ -167,10 +167,10 @@ export default function Hero({ onExploreMenu, onOpenBooking }: HeroProps) {
             </motion.div>
 
             {/* Display Headings — two-beat stagger */}
-            <div className="mb-6">
+            <div className="mb-4 sm:mb-6">
               <motion.div
                 variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } } }}
-                className="text-6xl sm:text-7xl md:text-8xl lg:text-[6.5rem] xl:text-[7.5rem] font-medium text-gray-900 leading-[1.08] text-shadow-sm"
+                className="text-3xl sm:text-6xl md:text-8xl lg:text-[6.5rem] xl:text-[7.5rem] font-medium text-gray-900 leading-[1.08] text-shadow-sm"
                 style={{ fontFamily: '"Playfair Display", Georgia, serif' }}
               >
                 Good Food
@@ -178,7 +178,7 @@ export default function Hero({ onExploreMenu, onOpenBooking }: HeroProps) {
               <motion.div
                 variants={{ hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] } } }}
                 className="text-brand-red font-normal block -mt-2 sm:-mt-3 lg:-mt-4 select-none leading-none whitespace-nowrap"
-                style={{ fontFamily: '"Great Vibes", cursive', fontSize: 'clamp(3rem, 8.5vw, 8.5rem)' }}
+                style={{ fontFamily: '"Great Vibes", cursive', fontSize: 'clamp(1.8rem, 7vw, 8.5rem)' }}
               >
                 Great Moments
               </motion.div>
@@ -187,7 +187,7 @@ export default function Hero({ onExploreMenu, onOpenBooking }: HeroProps) {
             {/* Subtext description */}
             <motion.p
               variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } } }}
-              className="text-gray-600 text-base sm:text-lg md:text-xl mb-10 leading-relaxed max-w-xl"
+              className="text-gray-600 text-[10px] sm:text-sm md:text-base lg:text-lg xl:text-xl mb-4 sm:mb-6 lg:mb-10 leading-relaxed max-w-xl font-medium"
             >
               Delicious flavors, warm hospitality, and unforgettable moments — only at{' '}
               <span className="font-bold text-gray-800 border-b border-brand-yellow/50">Salman Restaurant.</span>
@@ -196,10 +196,10 @@ export default function Hero({ onExploreMenu, onOpenBooking }: HeroProps) {
             {/* Location chip */}
             <motion.div
               variants={{ hidden: { opacity: 0, scale: 0.85 }, visible: { opacity: 1, scale: 1, transition: { duration: 0.45, ease: 'easeOut' } } }}
-              className="inline-flex items-center gap-2 bg-gray-100 rounded-full px-4 py-1.5 mb-8"
+              className="inline-flex items-center gap-1 bg-gray-100 rounded-full px-2.5 py-1 mb-4 sm:mb-6 sm:px-4 sm:py-1.5"
             >
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse shrink-0" />
-              <span className="text-xs font-sans font-semibold text-gray-600 tracking-wide">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shrink-0" />
+              <span className="text-[9px] sm:text-xs font-sans font-semibold text-gray-600 tracking-wide">
                 📍 Chota Kalam, Ningolai, Swat
               </span>
             </motion.div>
@@ -207,16 +207,16 @@ export default function Hero({ onExploreMenu, onOpenBooking }: HeroProps) {
             {/* Action buttons */}
             <motion.div
               variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } }}
-              className="flex flex-wrap items-center gap-6"
+              className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6"
             >
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={onExploreMenu}
-                className="bg-brand-yellow hover:bg-brand-darkYellow text-white pl-3 pr-8 py-3 rounded-full font-sans font-bold tracking-widest transition-all flex items-center gap-3 shadow-lg shadow-yellow-500/20 text-sm cursor-pointer animate-glow-pulse"
+                className="bg-brand-yellow hover:bg-brand-darkYellow text-white pl-2.5 pr-6 py-2 sm:pl-3 sm:pr-8 sm:py-3 rounded-full font-sans font-bold tracking-widest transition-all flex items-center gap-2 sm:gap-3 shadow-lg shadow-yellow-500/20 text-[10px] sm:text-xs md:text-sm cursor-pointer animate-glow-pulse w-fit"
               >
-                <span className="bg-white/10 p-2.5 rounded-full flex items-center justify-center border border-white/20">
-                  <Utensils className="w-5 h-5 text-white" />
+                <span className="bg-white/10 p-1.5 sm:p-2.5 rounded-full flex items-center justify-center border border-white/20">
+                  <Utensils className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-white" />
                 </span>
                 EXPLORE MENU
               </motion.button>
@@ -224,10 +224,10 @@ export default function Hero({ onExploreMenu, onOpenBooking }: HeroProps) {
               <motion.button
                 whileHover={{ scale: 1.03 }}
                 onClick={() => setShowStoryModal(true)}
-                className="flex items-center gap-3 text-gray-800 font-sans font-bold text-sm tracking-widest hover:text-brand-red transition-colors group cursor-pointer"
+                className="flex items-center gap-2 sm:gap-3 text-gray-800 font-sans font-bold text-[10px] sm:text-xs md:text-sm tracking-widest hover:text-brand-red transition-colors group cursor-pointer w-fit"
               >
-                <span className="w-12 h-12 rounded-full border-2 border-brand-red flex items-center justify-center text-brand-red group-hover:bg-brand-red group-hover:text-white transition-all shadow-sm">
-                  <Play className="w-5 h-5 ml-0.5 fill-current" />
+                <span className="w-8 h-8 sm:w-12 sm:h-12 rounded-full border-2 border-brand-red flex items-center justify-center text-brand-red group-hover:bg-brand-red group-hover:text-white transition-all shadow-sm shrink-0">
+                  <Play className="w-3.5 h-3.5 sm:w-5 sm:h-5 ml-0.5 fill-current" />
                 </span>
                 WATCH OUR STORY
               </motion.button>
@@ -237,7 +237,7 @@ export default function Hero({ onExploreMenu, onOpenBooking }: HeroProps) {
 
           {/* ── Image Column ───────────────────────────────────────── */}
           <motion.div
-            className="lg:col-span-6 xl:col-span-5 relative w-full h-[380px] sm:h-[480px] lg:h-[780px] xl:h-[880px] flex items-end justify-center z-10 order-1 lg:order-2"
+            className="col-span-5 sm:col-span-5 lg:col-span-5 relative w-full h-[250px] sm:h-[450px] lg:h-[780px] xl:h-[880px] flex items-end justify-center z-10 order-2 lg:order-2"
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
@@ -255,7 +255,7 @@ export default function Hero({ onExploreMenu, onOpenBooking }: HeroProps) {
 
             {/* Doodle: Bell Pepper */}
             <div className="absolute top-[35%] left-[5%] lg:-left-5 z-0 select-none pointer-events-none opacity-30 transform -rotate-12">
-              <svg className="w-28 h-28 text-brand-yellow" fill="none" stroke="currentColor" strokeWidth="1" viewBox="0 0 24 24">
+              <svg className="w-14 h-14 sm:w-28 sm:h-28 text-brand-yellow" fill="none" stroke="currentColor" strokeWidth="1" viewBox="0 0 24 24">
                 <path d="M12 6c-1.5-2.5-4-3-6-3s-4 1.5-4 4.5c0 4.5 3 9.5 6 11.5 3 2 9 2 12 0 3-2 6-7 6-11.5 0-3-2-4.5-4-4.5s-4.5.5-6 3z" />
                 <path d="M12 6V3c0-1-1-2-2-2" />
                 <path d="M8 8c.5-2 2-3 4-3" />
@@ -264,7 +264,7 @@ export default function Hero({ onExploreMenu, onOpenBooking }: HeroProps) {
 
             {/* Doodle: Leaves */}
             <div className="absolute bottom-[35%] left-[-10%] lg:-left-12 z-0 select-none pointer-events-none opacity-35 transform rotate-45">
-              <svg className="w-16 h-16 text-brand-yellow" fill="none" stroke="currentColor" strokeWidth="1.2" viewBox="0 0 24 24">
+              <svg className="w-10 h-10 sm:w-16 sm:h-16 text-brand-yellow" fill="none" stroke="currentColor" strokeWidth="1.2" viewBox="0 0 24 24">
                 <path d="M2 22C10 22 22 10 22 2C14 2 2 14 2 22Z" />
                 <path d="M2 22C8 16 16 8 22 2" />
                 <path d="M12 12c-2-2-4-2-6-1M12 12c2 2 2 4 1 6" />
@@ -272,7 +272,7 @@ export default function Hero({ onExploreMenu, onOpenBooking }: HeroProps) {
             </div>
 
             {/* Doodle: Made with Love Hand-drawn text and arrow */}
-            <div className="absolute top-[20%] right-[5%] lg:right-[-5%] z-20 flex flex-col items-center select-none pointer-events-none rotate-6">
+            <div className="absolute top-[20%] right-[2%] lg:right-[-5%] z-20 flex flex-col items-center select-none pointer-events-none rotate-6 scale-[0.65] sm:scale-100">
               <span className="font-script text-2xl lg:text-3xl text-brand-red leading-none drop-shadow-sm" style={{ fontFamily: '"Great Vibes", cursive' }}>
                 Made
               </span>
@@ -286,7 +286,7 @@ export default function Hero({ onExploreMenu, onOpenBooking }: HeroProps) {
 
             {/* Doodle: Sparkles */}
             <div className="absolute top-[15%] left-[25%] z-0 select-none pointer-events-none opacity-25">
-              <Sparkles className="w-6 h-6 text-brand-yellow animate-pulse" />
+              <Sparkles className="w-4 h-4 sm:w-6 sm:h-6 text-brand-yellow animate-pulse" />
             </div>
 
           </motion.div>
