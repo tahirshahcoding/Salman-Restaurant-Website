@@ -141,7 +141,7 @@ export default function Hero({ onExploreMenu, onOpenBooking }: HeroProps) {
 
           {/* ── Text Content Block ─────────────────────────────────── */}
           <motion.div
-            className="col-span-7 sm:col-span-7 lg:col-span-7 xl:col-span-7 max-w-2xl text-left py-6 sm:py-12 lg:py-32 relative z-20 order-1 lg:order-1"
+            className="hidden md:block md:col-span-7 lg:col-span-7 xl:col-span-7 max-w-2xl text-left py-12 lg:py-32 relative z-20"
             initial="hidden"
             animate="visible"
             variants={{
@@ -237,7 +237,7 @@ export default function Hero({ onExploreMenu, onOpenBooking }: HeroProps) {
 
           {/* ── Image Column ───────────────────────────────────────── */}
           <motion.div
-            className="col-span-5 sm:col-span-5 lg:col-span-5 relative w-full h-[250px] sm:h-[450px] lg:h-[780px] xl:h-[880px] flex items-end justify-center z-10 order-2 lg:order-2"
+            className="col-span-12 md:col-span-5 relative w-full h-[480px] sm:h-[580px] lg:h-[780px] xl:h-[880px] flex items-end justify-center z-10"
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
@@ -287,6 +287,32 @@ export default function Hero({ onExploreMenu, onOpenBooking }: HeroProps) {
             {/* Doodle: Sparkles */}
             <div className="absolute top-[15%] left-[25%] z-0 select-none pointer-events-none opacity-25">
               <Sparkles className="w-4 h-4 sm:w-6 sm:h-6 text-brand-yellow animate-pulse" />
+            </div>
+
+            {/* Mobile Ribbon with Buttons */}
+            <div className="absolute bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-gray-100 shadow-2xl py-3.5 px-4 flex justify-center items-center gap-5 md:hidden">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                onClick={onExploreMenu}
+                className="bg-brand-yellow hover:bg-brand-darkYellow text-white pl-2.5 pr-6 py-2 rounded-full font-sans font-bold tracking-widest transition-all flex items-center gap-2 shadow-lg shadow-yellow-500/20 text-[10px] cursor-pointer"
+              >
+                <span className="bg-white/10 p-1.5 rounded-full flex items-center justify-center border border-white/20">
+                  <Utensils className="w-3.5 h-3.5 text-white" />
+                </span>
+                EXPLORE MENU
+              </motion.button>
+
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                onClick={() => setShowStoryModal(true)}
+                className="flex items-center gap-2 text-gray-800 font-sans font-bold text-[10px] tracking-widest hover:text-brand-red transition-colors group cursor-pointer w-fit"
+              >
+                <span className="w-8 h-8 rounded-full border-2 border-brand-red flex items-center justify-center text-brand-red group-hover:bg-brand-red group-hover:text-white transition-all shadow-sm shrink-0">
+                  <Play className="w-3.5 h-3.5 ml-0.5 fill-current" />
+                </span>
+                WATCH OUR STORY
+              </motion.button>
             </div>
 
           </motion.div>
