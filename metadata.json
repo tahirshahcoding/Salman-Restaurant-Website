@@ -1,0 +1,6 @@
+{
+  "name": "Salman Restaurant",
+  "description": "An ultra-premium interactive website for Salman Restaurant featuring chef specials, interactive menu filters, table reservation system, and customer reviews.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
