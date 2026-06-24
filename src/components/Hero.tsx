@@ -61,6 +61,24 @@ export default function Hero({ onExploreMenu, onOpenBooking }: HeroProps) {
         <div className="absolute inset-0 bg-pattern opacity-40 pointer-events-none" />
         <div className="absolute top-12 left-1/2 -translate-x-1/2 w-72 h-72 bg-brand-yellow/10 rounded-full blur-3xl pointer-events-none animate-slow-drift" />
 
+        {/* Red Brush Stroke Background (Positioned relative to full section to align completely to the right edge of screen) */}
+        <img
+          src={brushImg}
+          alt="Brush Stroke Accent"
+          className="absolute right-0 bottom-[-20px] md:bottom-[-40px] lg:bottom-[-80px] w-[85%] md:w-[60%] max-w-[1000px] h-auto object-contain z-0 select-none pointer-events-none transform translate-y-2 lg:translate-y-12"
+        />
+
+        {/* Mobile Welcome Header */}
+        <div className="absolute top-28 left-0 right-0 text-center px-4 md:hidden z-20">
+          <span className="text-[10px] font-sans font-extrabold tracking-[0.25em] text-brand-yellow uppercase block mb-1">
+            WELCOME TO
+          </span>
+          <h2 className="text-2xl font-serif font-bold text-gray-900 tracking-wide" style={{ fontFamily: '"Playfair Display", Georgia, serif' }}>
+            Salman Restaurant
+          </h2>
+          <div className="w-12 h-[1.5px] bg-brand-red mx-auto mt-2" />
+        </div>
+
 
         {/* Minimal Restaurant Background Doodles (9 Section-level + 3 Column-level = 12 total) */}
         {/* Doodle 1: Crossed Fork and Spoon */}
@@ -131,7 +149,7 @@ export default function Hero({ onExploreMenu, onOpenBooking }: HeroProps) {
           </svg>
         </div>
 
-        <div className="w-full max-w-[1750px] mx-auto px-4 sm:px-6 lg:px-12 xl:px-16 grid grid-cols-12 gap-4 lg:gap-16 items-center relative z-10 flex-1">
+        <div className="w-full max-w-[1750px] mx-auto px-4 sm:px-6 lg:px-12 xl:px-16 grid grid-cols-12 gap-4 lg:gap-16 items-end md:items-center relative z-10 flex-1">
 
           {/* ── Text Content Block ─────────────────────────────────── */}
           <motion.div
@@ -237,12 +255,7 @@ export default function Hero({ onExploreMenu, onOpenBooking }: HeroProps) {
             transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
 
-            {/* Red Brush Stroke Background (Moved inside the column to sit under portrait on mobile) */}
-            <img
-              src={brushImg}
-              alt="Brush Stroke Accent"
-              className="absolute right-0 bottom-[-20px] lg:bottom-[-80px] w-[85%] md:w-[60%] lg:w-[120%] max-w-[1000px] h-auto object-contain z-0 select-none pointer-events-none transform translate-y-2 lg:translate-y-12"
-            />
+
 
             {/* Wrapper for centering and positioning the image */}
             <div className="absolute inset-x-0 bottom-0 h-[115%] lg:h-[120%] flex items-end justify-center lg:justify-end">
