@@ -70,13 +70,13 @@ export default function Hero({ onExploreMenu, onOpenBooking }: HeroProps) {
 
         {/* Mobile Welcome Header */}
         <div className="absolute top-28 left-0 right-0 text-center px-4 md:hidden z-20">
-          <span className="text-[10px] font-sans font-extrabold tracking-[0.25em] text-brand-yellow uppercase block mb-1">
-            WELCOME TO
+          <span className="text-4xl text-brand-red block mb-0.5 leading-none select-none font-script" style={{ fontFamily: '"Great Vibes", cursive' }}>
+            Welcome to
           </span>
-          <h2 className="text-2xl font-serif font-bold text-gray-900 tracking-wide" style={{ fontFamily: '"Playfair Display", Georgia, serif' }}>
+          <h2 className="text-3xl font-serif font-bold text-gray-900 tracking-wide drop-shadow-sm leading-tight" style={{ fontFamily: '"Playfair Display", Georgia, serif' }}>
             Salman Restaurant
           </h2>
-          <div className="w-12 h-[1.5px] bg-brand-red mx-auto mt-2" />
+          <div className="w-16 h-[2px] bg-brand-yellow mx-auto mt-3 rounded-full opacity-80" />
         </div>
 
 
