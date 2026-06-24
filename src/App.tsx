@@ -237,7 +237,7 @@ export default function App() {
               initial={{ scale: 0.95, opacity: 0, y: 15 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 15 }}
-              className="bg-white rounded-3xl overflow-hidden max-w-xl w-full relative z-10 shadow-2xl p-6 md:p-8"
+              className="bg-white rounded-3xl overflow-y-auto max-h-[90vh] max-w-xl w-full relative z-10 shadow-2xl p-6 md:p-8"
             >
               {/* Close Button */}
               <button

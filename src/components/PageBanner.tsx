@@ -8,7 +8,7 @@ interface PageBannerProps {
 
 export default function PageBanner({ title, subtitle }: PageBannerProps) {
   return (
-    <div className="relative h-64 md:h-72 w-full bg-gray-950 overflow-hidden flex items-center">
+    <div className="relative h-64 sm:h-72 md:h-80 w-full bg-gray-950 overflow-hidden flex items-end pb-8 sm:pb-12">
 
       {/* Background Image with slow zoom */}
       <motion.img
@@ -32,7 +32,7 @@ export default function PageBanner({ title, subtitle }: PageBannerProps) {
       <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-gray-50 to-transparent" />
 
       {/* Text Content */}
-      <div className="w-full max-w-[1750px] mx-auto px-4 sm:px-6 lg:px-12 xl:px-16 relative z-10 text-left pt-14 md:pt-16">
+      <div className="w-full max-w-[1750px] mx-auto px-4 sm:px-6 lg:px-12 xl:px-16 relative z-10 text-left pt-24 sm:pt-28 md:pt-32">
 
         <motion.div
           initial={{ opacity: 0, x: -20 }}

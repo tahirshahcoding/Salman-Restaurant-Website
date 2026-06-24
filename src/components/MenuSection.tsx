@@ -402,7 +402,7 @@ export default function MenuSection({ onAddItemToCart, onOpenCart }: MenuSection
               </div>
 
               {/* Recipe Meta details */}
-              <div className="p-6 md:p-8 text-left max-h-[420px] overflow-y-auto">
+              <div className="p-6 md:p-8 text-left max-h-[50vh] md:max-h-[450px] overflow-y-auto">
                 <div className="flex justify-between items-center text-2xs font-sans font-bold text-gray-500 border-b border-gray-100 pb-3 mb-4">
                   <span className="flex items-center gap-1">
                     <Clock className="w-3.5 h-3.5 text-brand-yellow" /> Prep: {selectedDish.prepTime || '15 min'}

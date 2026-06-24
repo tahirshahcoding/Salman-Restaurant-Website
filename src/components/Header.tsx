@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, Calendar, ShoppingBag, Menu, X, Clock } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { CartItem } from '../types';
@@ -20,6 +20,19 @@ export default function Header({
   onNavigate
 }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const cartItemsCount = cart.reduce((total, item) => total + item.quantity, 0);
 
@@ -36,9 +49,18 @@ export default function Header({
     setMobileMenuOpen(false);
   };
 
+  // Determine if we should use dark text (dark theme) or white text (light theme)
+  const isDarkTheme = activeSection === 'home' || scrolled;
+
   return (
     <>
-      <header id="app-header" className="bg-transparent absolute top-0 left-0 right-0 z-50 py-3 transition-all duration-300">
+      <header
+        id="app-header"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+          ? 'bg-white/95 backdrop-blur-md shadow-md py-2 border-b border-gray-100'
+          : 'bg-transparent py-4'
+          }`}
+      >
         <div className="w-full max-w-[1750px] mx-auto px-4 sm:px-6 lg:px-12 xl:px-16 flex justify-between items-center">
 
           {/* Logo */}
@@ -62,15 +84,16 @@ export default function Header({
                   key={link.target}
                   onClick={() => handleLinkClick(link.target)}
                   className={`relative py-1 cursor-pointer transition-colors duration-300 focus:outline-none ${isActive
-                    ? 'text-brand-red font-extrabold'
-                    : 'text-gray-600 hover:text-brand-red'
+                    ? isDarkTheme ? 'text-brand-red font-extrabold' : 'text-brand-yellow font-extrabold'
+                    : isDarkTheme ? 'text-gray-600 hover:text-brand-red' : 'text-white/80 hover:text-white'
                     }`}
                 >
                   {link.label}
                   {isActive && (
                     <motion.div
                       layoutId="activeNavLine"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-brand-red"
+                      className={`absolute bottom-0 left-0 right-0 h-0.5 ${isDarkTheme ? 'bg-brand-red' : 'bg-brand-yellow'
+                        }`}
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -85,7 +108,10 @@ export default function Header({
             {/* Cart Button */}
             <button
               onClick={onOpenCart}
-              className="relative p-2 text-gray-700 hover:text-brand-red hover:bg-gray-50 rounded-full transition-all focus:outline-none"
+              className={`relative p-2 rounded-full transition-all focus:outline-none ${isDarkTheme
+                ? 'text-gray-700 hover:text-brand-red hover:bg-gray-50'
+                : 'text-white/90 hover:text-brand-yellow hover:bg-white/10'
+                }`}
               title="View Table Order"
             >
               <ShoppingBag className="w-5.5 h-5.5" />
@@ -93,7 +119,8 @@ export default function Header({
                 <motion.span
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  className="absolute -top-1 -right-1 bg-brand-yellow text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white shadow-sm"
+                  className={`absolute -top-1 -right-1 bg-brand-yellow text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 shadow-sm ${isDarkTheme ? 'border-white' : 'border-gray-950'
+                    }`}
                 >
                   {cartItemsCount}
                 </motion.span>
@@ -114,7 +141,10 @@ export default function Header({
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden text-gray-700 hover:text-brand-red p-1 rounded-lg hover:bg-gray-50 transition-colors focus:outline-none"
+              className={`md:hidden p-1 rounded-lg transition-colors focus:outline-none ${isDarkTheme
+                ? 'text-gray-700 hover:text-brand-red hover:bg-gray-50'
+                : 'text-white hover:text-brand-yellow hover:bg-white/10'
+                }`}
             >
               {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
             </button>
@@ -131,7 +161,8 @@ export default function Header({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden fixed top-[69px] left-0 right-0 bg-white border-b border-gray-100 shadow-lg z-40 px-4 py-6"
+            className={`md:hidden fixed left-0 right-0 bg-white border-b border-gray-100 shadow-lg z-40 px-4 py-6 transition-all duration-300 ${scrolled ? 'top-[72px]' : 'top-[84px]'
+              }`}
           >
             <nav className="flex flex-col gap-4 font-sans font-semibold text-sm tracking-widest text-center">
               {navLinks.map((link) => (
@@ -161,3 +192,4 @@ export default function Header({
     </>
   );
 }
+

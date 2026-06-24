@@ -243,13 +243,15 @@ export default function Hero({ onExploreMenu, onOpenBooking }: HeroProps) {
             transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
 
-            {/* Chef Portrait — floating bob animation */}
-            <img
-              src={salmanImg}
-              alt="Salman — CEO & Founder"
-              className="absolute bottom-0 right-0 h-[115%] lg:h-[120%] w-auto max-w-none object-contain z-10 select-none pointer-events-none drop-shadow-[0_20px_40px_rgba(0,0,0,0.18)] animate-float-bob"
-              style={{ transformOrigin: 'bottom center' }}
-            />
+            {/* Wrapper for centering and positioning the image */}
+            <div className="absolute inset-x-0 bottom-0 h-[115%] lg:h-[120%] flex items-end justify-center lg:justify-end">
+              <img
+                src={salmanImg}
+                alt="Salman — CEO & Founder"
+                className="h-full w-auto max-w-none object-contain z-10 select-none pointer-events-none drop-shadow-[0_20px_40px_rgba(0,0,0,0.18)] animate-float-bob"
+                style={{ transformOrigin: 'bottom center' }}
+              />
+            </div>
 
             {/* Doodle: Bell Pepper */}
             <div className="absolute top-[35%] left-[5%] lg:-left-5 z-0 select-none pointer-events-none opacity-30 transform -rotate-12">
@@ -314,7 +316,7 @@ export default function Hero({ onExploreMenu, onOpenBooking }: HeroProps) {
               initial={{ scale: 0.9, y: 20, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.9, y: 20, opacity: 0 }}
-              className="bg-white rounded-3xl overflow-hidden max-w-2xl w-full relative z-10 shadow-2xl flex flex-col md:flex-row h-[550px] md:h-[400px]"
+              className="bg-white rounded-3xl overflow-hidden max-w-2xl w-full relative z-10 shadow-2xl flex flex-col md:flex-row h-[90vh] max-h-[520px] md:h-[400px]"
             >
 
               {/* Close Button */}
